@@ -150,3 +150,4 @@ pnpm-lock.yaml
 
 # exclusions
 !docs/prompts/testing.prompt.md
+!docs/prompts/coding.prompt.md
