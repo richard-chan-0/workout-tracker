@@ -13,7 +13,7 @@ export function PWARegistration() {
         // Listen for the beforeinstallprompt event
         const handleBeforeInstallPrompt = (e: Event) => {
             e.preventDefault()
-            setDeferredPrompt(e as any)
+            setDeferredPrompt(e as unknown as PWAInstallPrompt) // TODO: fix this typing issue
             setShowInstallButton(true)
         }
 

@@ -148,6 +148,8 @@ workbox-*.js
 
 pnpm-lock.yaml
 
+.vscode
+
 # exclusions
 !docs/prompts/testing.prompt.md
 !docs/prompts/coding.prompt.md
