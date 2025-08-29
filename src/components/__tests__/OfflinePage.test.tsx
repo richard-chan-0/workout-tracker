@@ -12,13 +12,14 @@ describe('OfflinePage', () => {
     })
 
     it('renders try again button', () => {
-        render(<OfflinePage />)
+        render(<OfflinePage onRetry={onRetry} />)
         const tryAgainButton = screen.getByRole('button', { name: /try again/i })
         expect(tryAgainButton).toBeInTheDocument()
     })
 
     it('calls onRetry when try again button is clicked', () => {
         render(<OfflinePage onRetry={onRetry} />)
+        screen.debug()
         const tryAgainButton = screen.getByRole('button', { name: /try again/i })
         fireEvent.click(tryAgainButton)
         expect(onRetry).toHaveBeenCalledTimes(1)

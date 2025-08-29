@@ -30,3 +30,14 @@ for example:
 import React from 'react'
 import type { ReactElement } from 'react'
 ```
+
+4. Prioritize the use of escape clauses to avoid deep nesting
+
+```
+if (!condition) {
+    // handle the negative case and return early
+    return
+}
+
+// main logic here
+```

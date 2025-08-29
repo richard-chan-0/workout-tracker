@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '../../test/utils'
-import { ServiceWorkerStatus } from '../ServiceWorkerStatus'
+import ServiceWorkerStatus from '../ServiceWorkerStatus'
 
 describe('ServiceWorkerStatus', () => {
     beforeEach(() => {
@@ -72,15 +72,9 @@ describe('ServiceWorkerStatus', () => {
     })
 
     it('handles service worker not being available', () => {
-        // Mock service worker not being available
         Object.defineProperty(navigator, 'serviceWorker', {
             writable: true,
-            value: {
-                ready: Promise.resolve({}),
-                addEventListener: jest.fn(),
-                removeEventListener: jest.fn(),
-                controller: null,
-            },
+            value: undefined,
         })
 
         render(<ServiceWorkerStatus />)

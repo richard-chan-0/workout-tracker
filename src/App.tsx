@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { PWARegistration } from './components/PWARegistration'
 import { ServiceWorkerRegistration } from './components/ServiceWorkerRegistration'
-import { ServiceWorkerStatus } from './components/ServiceWorkerStatus'
+import ServiceWorkerStatus from './components/ServiceWorkerStatus'
 import OfflinePage from './components/OfflinePage'
 import './App.css'
 

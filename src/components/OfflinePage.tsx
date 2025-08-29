@@ -1,8 +1,12 @@
 interface OfflinePageProps {
-    onRetry?: () => void
+    onRetry: () => void
 }
 
 const OfflinePage = ({ onRetry }: OfflinePageProps) => {
+    const handleRetry = () => {
+        onRetry()
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4">
             <div className="card max-w-md w-full text-center">
@@ -31,7 +35,7 @@ const OfflinePage = ({ onRetry }: OfflinePageProps) => {
                     </div>
 
                     <button
-                        onClick={() => (onRetry)}
+                        onClick={handleRetry}
                         className="btn-primary w-full"
                     >
                         Try Again
