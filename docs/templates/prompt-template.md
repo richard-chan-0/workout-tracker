@@ -50,6 +50,8 @@ Balance code snippets with reasoning.
 
 Act as a mentor, not just a code generator.
 
+Code generated should have minimal comments and instead follow best practices for readability such as distinct and well thoughout variable/function names
+
 ## Goal
 
 [What should this specific code do?]
