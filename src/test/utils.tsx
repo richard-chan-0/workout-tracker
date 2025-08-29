@@ -1,15 +1,15 @@
-import React, { ReactElement } from 'react'
-import { render, RenderOptions, act } from '@testing-library/react'
+import React from 'react'
+import type { ReactElement } from 'react'
+import { render, act } from '@testing-library/react'
+import type { RenderOptions } from '@testing-library/react'
+import DefaultProvider from './DefaultProvider'
 
-// Custom render function with providers
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-    return <>{children}</>
-}
 
 const customRender = (
     ui: ReactElement,
-    options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: AllTheProviders, ...options })
+    options?: Omit<RenderOptions, 'wrapper'>,
+    customWrapper: React.ComponentType<{ children: React.ReactNode }> = DefaultProvider,
+) => render(ui, { wrapper: customWrapper, ...options })
 
 // PWA-specific test utilities
 export const mockServiceWorker = {
@@ -91,6 +91,13 @@ export const fireAppInstalled = () => {
     })
 }
 
-// Re-export everything
-export * from '@testing-library/react'
+export {
+    render as rtlRender,
+    screen,
+    fireEvent,
+    waitFor,
+    act,
+    cleanup,
+    within,
+} from '@testing-library/react'
 export { customRender as render }

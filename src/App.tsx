@@ -35,7 +35,7 @@ function App() {
 
   // Show offline page if offline and app hasn't loaded yet
   if (!isOnline && !isAppLoaded) {
-    return <OfflinePage />
+    return <OfflinePage onRetry={window.location.reload} />
   }
 
   return (

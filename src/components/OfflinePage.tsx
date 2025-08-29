@@ -1,4 +1,8 @@
-export function OfflinePage() {
+interface OfflinePageProps {
+    onRetry?: () => void
+}
+
+const OfflinePage = ({ onRetry }: OfflinePageProps) => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4">
             <div className="card max-w-md w-full text-center">
@@ -27,7 +31,7 @@ export function OfflinePage() {
                     </div>
 
                     <button
-                        onClick={() => window.location.reload()}
+                        onClick={() => (onRetry)}
                         className="btn-primary w-full"
                     >
                         Try Again
@@ -37,3 +41,5 @@ export function OfflinePage() {
         </div>
     )
 }
+
+export default OfflinePage;
