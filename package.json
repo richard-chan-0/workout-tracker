@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "clean:soft": "rm -rf dist .turbo",
+    "clean": "rm -rf dist node_modules .turbo",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
