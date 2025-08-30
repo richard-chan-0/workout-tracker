@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { PWARegistration } from './components/PWARegistration'
-import { ServiceWorkerRegistration } from './components/ServiceWorkerRegistration'
+import ServiceWorkerRegistration from './components/ServiceWorkerRegistration'
 import ServiceWorkerStatus from './components/ServiceWorkerStatus'
 import OfflinePage from './components/OfflinePage'
 import './App.css'
@@ -9,6 +9,7 @@ function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine)
   const [isPWAInstalled, setIsPWAInstalled] = useState(false)
   const [isAppLoaded, setIsAppLoaded] = useState(false)
+  const [showUpdateBanner, setShowUpdateBanner] = useState(false)
 
   useEffect(() => {
     // Handle online/offline status
@@ -92,7 +93,7 @@ function App() {
       </div>
 
       <PWARegistration />
-      <ServiceWorkerRegistration />
+      {showUpdateBanner && <ServiceWorkerRegistration setShowUpdateBanner={setShowUpdateBanner} />}
     </>
   )
 }
